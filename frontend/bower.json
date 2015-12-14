@@ -1,0 +1,21 @@
+{
+  "name": "angular-upload",
+  "authors": [
+    "mickyginger <mickyginger@gmail.com>"
+  ],
+  "description": "An file upload solution for angular",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-file-upload": "~10.1.9"
+  }
+}
