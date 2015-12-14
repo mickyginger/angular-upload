@@ -1,5 +1,6 @@
 var express = require('express');
 var multer = require('multer');
+var s3 = require('multer-s3');
 var morgan = require('morgan');
 var cors = require('cors');
 var uuid = require('uuid');
@@ -15,9 +16,14 @@ app.use(cors({
 
 
 var upload = multer({
-  storage: multer.diskStorage({
-    destination: function(req, file, next) {
-      next(null, './uploads');
+  storage: s3({
+    dirname: 'uploads',
+    bucket: 'wdi-london',
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    region: 'eu-west-1',
+    contentType: function(req, file, next) {
+      next(null, file.mimetype);
     },
     filename: function(req, file, next) {
       var ext = '.' + file.mimetype.replace('image/', '');

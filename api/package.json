@@ -8,6 +8,7 @@
     "express": "^4.13.3",
     "morgan": "^1.6.1",
     "multer": "^1.1.0",
+    "multer-s3": "^1.4.1",
     "uuid": "^2.0.1"
   },
   "devDependencies": {},
