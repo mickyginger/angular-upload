@@ -45,7 +45,6 @@ var upload = multer({
 
 // This will upload a single file.
 app.post('/upload/single', upload.single('file'), function(req, res) {
-  console.log(req.file);
   res.status(200).json({ filename: req.file.key });
 });
 
