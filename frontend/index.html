@@ -10,9 +10,14 @@
   <script src="./js/controllers/mainController.js"></script>
 </head>
 <body ng-controller="MainController as main">
-  Upload on form submit
-  <form name="main.form" ng-submit="main.upload()">
-    <input type="file" class="button" ngf-select ng-model="main.file" name="file">Select File</div>
+  Upload single file on form submit
+  <form name="main.form" ng-submit="main.uploadSingle()">
+    <input type="file"ngf-select ng-model="main.file" name="file">Select File</div>
+    <button type="submit">Submit</button>
+  </form>
+  Upload multiple files on form submit
+  <form name="main.multiForm" ng-submit="main.uploadMulti()">
+    <input type="file" ngf-select ng-model="main.files" name="files" ngf-multiple="true">Select Files</div>
     <button type="submit">Submit</button>
   </form>
 </body>

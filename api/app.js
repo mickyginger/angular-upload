@@ -43,10 +43,18 @@ var upload = multer({
   })
 });
 
-// This will upload a single file. Check out the multer docks for
-// uploading multiple files.
-app.post('/upload', upload.single('file'), function(req, res) {
-  return res.status(200).json({ filename: req.file.filename });
+// This will upload a single file.
+app.post('/upload/single', upload.single('file'), function(req, res) {
+  console.log(req.file);
+  res.status(200).json({ filename: req.file.key });
+});
+
+// This will upload multiple files.
+app.post('/upload/multi', upload.array('files'), function(req, res) {
+  filenames = Object.keys(req.files).map(function(key) {
+    return req.files[key].key;
+  });
+  res.status(200).json({ filenames: filenames });
 });
 
 app.listen(PORT);
